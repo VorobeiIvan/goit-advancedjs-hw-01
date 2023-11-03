@@ -33,10 +33,5 @@ feedbackForm.addEventListener('submit', e => {
   emailInput.value="";
   messageTextarea.value="";
   localStorage.removeItem(feedbackStorageKey);
-  const formState = {
-    email: emailInput.value,
-    message: messageTextarea.value,
-  };
-
-  console.log(formState);
+loadFormState();
 });
