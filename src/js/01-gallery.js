@@ -29,31 +29,4 @@ const lightbox = new SimpleLightbox('.gallery__link', {
   captions: true,
 });
 
-gallery.addEventListener('click', openOriginalIMG);
-let modalOpen = false;
 
-function openOriginalIMG(e) {
-  e.preventDefault();
-
-  const imgOriginal = e.target.closest('.gallery__link');
-
-  lightbox.open({
-    items: [
-      {
-        url: imgOriginal.getAttribute('href'),
-        title: 'Image Title',
-      },
-    ],
-  });
-
-  modalOpen = true;
-  document.addEventListener('keydown', closeModal);
-}
-
-function closeModal(event) {
-  if (event.key === 'Escape' && modalOpen) {
-    lightbox.close();
-    modalOpen = false;
-    document.removeEventListener('keydown', closeModal);
-  }
-}
