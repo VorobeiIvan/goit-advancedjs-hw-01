@@ -30,8 +30,14 @@ loadFormState();
 
 feedbackForm.addEventListener('submit', e => {
   e.preventDefault();
-  emailInput.value="";
-  messageTextarea.value="";
+  if (emailInput.value && messageTextarea.value) {
+    const formState = {
+      email: emailInput.value,
+      message: messageTextarea.value,
+    };
+    console.log(formState);
+  }
+  emailInput.value = '';
+  messageTextarea.value = '';
   localStorage.removeItem(feedbackStorageKey);
-loadFormState();
 });
